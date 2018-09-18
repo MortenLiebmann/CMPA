@@ -9,9 +9,11 @@
 import Foundation
 
 struct User: Codable {
-    var Id: String?
+    var Id: Int?
     var Repos_Url: String?
     
-    
-    
+    private enum CodingKeys: String, CodingKey {
+        case Id = "id"
+        case Repos_Url = "repos_url"
+    }
 }
