@@ -11,7 +11,7 @@ import Foundation
 struct GitHubResponse<T: Codable>:Codable {
     var Total: Int?
     var Incomplete: Bool?
-    var Items: [T]
+    var Items: [T]?
     
     private enum CodingKeys: String, CodingKey {
         case Total = "total_count"
