@@ -10,12 +10,11 @@ import Foundation
 import RxSwift
 
 struct GitHubRepositoriesApiController {
+    var appClient = AppClient()
     func getRepositories(by urlString: String) -> Observable<[Repository]> {
         guard let url = URL(string: urlString) else {
             return .empty()
         }
-        
-        let appClient = AppClient()
         
         return appClient.get(request: URLRequest(url: url))
     }
@@ -24,8 +23,6 @@ struct GitHubRepositoriesApiController {
         guard let url = URL(string: "https://api.github.com/search/repositories?q=\(query)") else {
             return .empty()
         }
-        
-        let appClient = AppClient()
         
         return appClient.get(request: URLRequest(url: url))
     }
