@@ -40,7 +40,7 @@ class UsersViewController: UIViewController {
         
         let controller = GitHubUsersApiController()
         let users = searchBar.rx.text.orEmpty.asObservable()
-            .throttle(0.3, scheduler: MainScheduler.instance)
+            .debounce(0.3, scheduler: MainScheduler.instance)
             .distinctUntilChanged()
             .map {$0}
             .flatMap {query -> Observable<GitHubResponse<User>> in
