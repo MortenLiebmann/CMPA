@@ -23,7 +23,7 @@ enum GitHubServiceError: Error {
 struct GitHubUsersApiController {
     func getUsers(by query: String) -> Observable<GitHubResponse<User>> {
         guard let url = URL(string: "https://api.github.com/search/users?q=\(query)") else {
-            fatalError("Could not parse Url")
+            return .empty()
         }
         
         let appClient = AppClient()

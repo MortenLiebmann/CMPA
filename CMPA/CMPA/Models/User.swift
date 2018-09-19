@@ -10,10 +10,14 @@ import Foundation
 
 struct User: Codable {
     var Id: Int?
-    var Repos_Url: String?
+    var RepositoryUrl: String?
+    var UserType: String?
+    var UserLogin: String?
     
     private enum CodingKeys: String, CodingKey {
         case Id = "id"
-        case Repos_Url = "repos_url"
+        case RepositoryUrl = "repos_url"
+        case UserType = "type"
+        case UserLogin = "login"
     }
 }
