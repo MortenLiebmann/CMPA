@@ -9,13 +9,14 @@
 /* Begin PBXBuildFile section */
 		13AFE49A5C41656117C38EE4 /* Pods_CMPA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB6F71DB6B137E347E851A82 /* Pods_CMPA.framework */; };
 		A626305D215128820028C989 /* AppClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A626305C215128820028C989 /* AppClient.swift */; };
+		A6A903012152800F00BF462C /* RepositoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A903002152800F00BF462C /* RepositoriesViewController.swift */; };
 		A6BBD21F21502A63003FD8DB /* GitHubUsersApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BBD21E21502A63003FD8DB /* GitHubUsersApi.swift */; };
 		A6BBD22121502A77003FD8DB /* GitHubRepositoriesApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BBD22021502A77003FD8DB /* GitHubRepositoriesApi.swift */; };
 		A6BBD22421502A97003FD8DB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BBD22321502A97003FD8DB /* User.swift */; };
 		A6BBD22621502AA3003FD8DB /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BBD22521502AA3003FD8DB /* Repository.swift */; };
 		A6CE179D21512FE200112E95 /* GitHubResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CE179C21512FE200112E95 /* GitHubResponse.swift */; };
 		A6FE57F221501FC3003A6FE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FE57F121501FC3003A6FE5 /* AppDelegate.swift */; };
-		A6FE57F421501FC3003A6FE5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FE57F321501FC3003A6FE5 /* ViewController.swift */; };
+		A6FE57F421501FC3003A6FE5 /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FE57F321501FC3003A6FE5 /* UsersViewController.swift */; };
 		A6FE57F721501FC3003A6FE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6FE57F521501FC3003A6FE5 /* Main.storyboard */; };
 		A6FE57F921501FC4003A6FE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6FE57F821501FC4003A6FE5 /* Assets.xcassets */; };
 		A6FE57FC21501FC4003A6FE5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6FE57FA21501FC4003A6FE5 /* LaunchScreen.storyboard */; };
@@ -44,6 +45,7 @@
 /* Begin PBXFileReference section */
 		175AA6FB0FDEAACCE3047FCB /* Pods-CMPA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CMPA.release.xcconfig"; path = "Pods/Target Support Files/Pods-CMPA/Pods-CMPA.release.xcconfig"; sourceTree = "<group>"; };
 		A626305C215128820028C989 /* AppClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppClient.swift; sourceTree = "<group>"; };
+		A6A903002152800F00BF462C /* RepositoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesViewController.swift; sourceTree = "<group>"; };
 		A6BBD21E21502A63003FD8DB /* GitHubUsersApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubUsersApi.swift; sourceTree = "<group>"; };
 		A6BBD22021502A77003FD8DB /* GitHubRepositoriesApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRepositoriesApi.swift; sourceTree = "<group>"; };
 		A6BBD22321502A97003FD8DB /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -51,7 +53,7 @@
 		A6CE179C21512FE200112E95 /* GitHubResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubResponse.swift; sourceTree = "<group>"; };
 		A6FE57EE21501FC3003A6FE5 /* CMPA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CMPA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6FE57F121501FC3003A6FE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A6FE57F321501FC3003A6FE5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A6FE57F321501FC3003A6FE5 /* UsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
 		A6FE57F621501FC3003A6FE5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A6FE57F821501FC4003A6FE5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A6FE57FB21501FC4003A6FE5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -62,7 +64,7 @@
 		A6FE580D21501FC4003A6FE5 /* CMPAUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CMPAUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6FE581121501FC4003A6FE5 /* CMPAUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMPAUITests.swift; sourceTree = "<group>"; };
 		A6FE581321501FC4003A6FE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A6FE581F21502108003A6FE5 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; path = Podfile; sourceTree = "<group>"; };
+		A6FE581F21502108003A6FE5 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		BB6F71DB6B137E347E851A82 /* Pods_CMPA.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CMPA.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDEBE65C345CE9AE34F7FF16 /* Pods-CMPA.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CMPA.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CMPA/Pods-CMPA.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -104,6 +106,8 @@
 		A626305B2150333A0028C989 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A6FE57F321501FC3003A6FE5 /* UsersViewController.swift */,
+				A6A903002152800F00BF462C /* RepositoriesViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -157,7 +161,6 @@
 				A6BBD22221502A8C003FD8DB /* Models */,
 				A6BBD21D2150284C003FD8DB /* Controllers */,
 				A6FE57F121501FC3003A6FE5 /* AppDelegate.swift */,
-				A6FE57F321501FC3003A6FE5 /* ViewController.swift */,
 				A6FE57F521501FC3003A6FE5 /* Main.storyboard */,
 				A6FE57F821501FC4003A6FE5 /* Assets.xcassets */,
 				A6FE57FA21501FC4003A6FE5 /* LaunchScreen.storyboard */,
@@ -349,12 +352,16 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-CMPA/Pods-CMPA-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -369,10 +376,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A6FE57F421501FC3003A6FE5 /* ViewController.swift in Sources */,
+				A6FE57F421501FC3003A6FE5 /* UsersViewController.swift in Sources */,
 				A6CE179D21512FE200112E95 /* GitHubResponse.swift in Sources */,
 				A6BBD21F21502A63003FD8DB /* GitHubUsersApi.swift in Sources */,
 				A6FE57F221501FC3003A6FE5 /* AppDelegate.swift in Sources */,
+				A6A903012152800F00BF462C /* RepositoriesViewController.swift in Sources */,
 				A6BBD22421502A97003FD8DB /* User.swift in Sources */,
 				A6BBD22121502A77003FD8DB /* GitHubRepositoriesApi.swift in Sources */,
 				A626305D215128820028C989 /* AppClient.swift in Sources */,
