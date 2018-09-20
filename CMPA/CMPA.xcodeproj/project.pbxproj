@@ -16,6 +16,9 @@
 		A6BBD22621502AA3003FD8DB /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BBD22521502AA3003FD8DB /* Repository.swift */; };
 		A6CE179D21512FE200112E95 /* GitHubResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CE179C21512FE200112E95 /* GitHubResponse.swift */; };
 		A6E5DC2D2152E89B008D85BB /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E5DC2C2152E89B008D85BB /* StorageManager.swift */; };
+		A6E5DC302153AB6B008D85BB /* UsersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E5DC2E2153AB6B008D85BB /* UsersTableViewCell.swift */; };
+		A6E5DC312153AB6B008D85BB /* UsersTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6E5DC2F2153AB6B008D85BB /* UsersTableViewCell.xib */; };
+		A6E5DC33215401FA008D85BB /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E5DC32215401FA008D85BB /* Extensions.swift */; };
 		A6FE57F221501FC3003A6FE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FE57F121501FC3003A6FE5 /* AppDelegate.swift */; };
 		A6FE57F421501FC3003A6FE5 /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FE57F321501FC3003A6FE5 /* UsersViewController.swift */; };
 		A6FE57F721501FC3003A6FE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6FE57F521501FC3003A6FE5 /* Main.storyboard */; };
@@ -53,6 +56,9 @@
 		A6BBD22521502AA3003FD8DB /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		A6CE179C21512FE200112E95 /* GitHubResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubResponse.swift; sourceTree = "<group>"; };
 		A6E5DC2C2152E89B008D85BB /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		A6E5DC2E2153AB6B008D85BB /* UsersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableViewCell.swift; sourceTree = "<group>"; };
+		A6E5DC2F2153AB6B008D85BB /* UsersTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UsersTableViewCell.xib; sourceTree = "<group>"; };
+		A6E5DC32215401FA008D85BB /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		A6FE57EE21501FC3003A6FE5 /* CMPA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CMPA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6FE57F121501FC3003A6FE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A6FE57F321501FC3003A6FE5 /* UsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
@@ -110,6 +116,8 @@
 			children = (
 				A6FE57F321501FC3003A6FE5 /* UsersViewController.swift */,
 				A6A903002152800F00BF462C /* RepositoriesViewController.swift */,
+				A6E5DC2E2153AB6B008D85BB /* UsersTableViewCell.swift */,
+				A6E5DC2F2153AB6B008D85BB /* UsersTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -169,6 +177,7 @@
 				A6FE57FD21501FC4003A6FE5 /* Info.plist */,
 				A626305C215128820028C989 /* AppClient.swift */,
 				A6E5DC2C2152E89B008D85BB /* StorageManager.swift */,
+				A6E5DC32215401FA008D85BB /* Extensions.swift */,
 			);
 			path = CMPA;
 			sourceTree = "<group>";
@@ -309,6 +318,7 @@
 				A6FE57FC21501FC4003A6FE5 /* LaunchScreen.storyboard in Resources */,
 				A6FE57F921501FC4003A6FE5 /* Assets.xcassets in Resources */,
 				A6FE582021502108003A6FE5 /* Podfile in Resources */,
+				A6E5DC312153AB6B008D85BB /* UsersTableViewCell.xib in Resources */,
 				A6FE57F721501FC3003A6FE5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -386,9 +396,11 @@
 				A6A903012152800F00BF462C /* RepositoriesViewController.swift in Sources */,
 				A6BBD22421502A97003FD8DB /* User.swift in Sources */,
 				A6BBD22121502A77003FD8DB /* GitHubRepositoriesApi.swift in Sources */,
+				A6E5DC33215401FA008D85BB /* Extensions.swift in Sources */,
 				A6E5DC2D2152E89B008D85BB /* StorageManager.swift in Sources */,
 				A626305D215128820028C989 /* AppClient.swift in Sources */,
 				A6BBD22621502AA3003FD8DB /* Repository.swift in Sources */,
+				A6E5DC302153AB6B008D85BB /* UsersTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
