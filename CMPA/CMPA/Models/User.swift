@@ -13,11 +13,13 @@ struct User: Codable {
     var RepositoryUrl: String?
     var UserType: String?
     var UserLogin: String?
+    var AvatarUrl: String?
     
     private enum CodingKeys: String, CodingKey {
         case Id = "id"
         case RepositoryUrl = "repos_url"
         case UserType = "type"
         case UserLogin = "login"
+        case AvatarUrl = "avatar_url"
     }
 }

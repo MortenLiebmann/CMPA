@@ -26,16 +26,20 @@ class UsersViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.register(UINib(nibName: "UsersTableViewCell", bundle: nil), forCellReuseIdentifier: "Cell")
         
         let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, User>>(
             configureCell: {(_, tv, indexPath, element) in
-                let cell = tv.dequeueReusableCell(withIdentifier: "Cell")!
-                cell.textLabel?.text = "\(element.UserLogin!)"
+                let cell = tv.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! UsersTableViewCell
+                cell.nameLabel.text = element.UserLogin
+                cell.repositoryLabel.text = element.RepositoryUrl
+                cell.avatar.downloadImage(from: element.AvatarUrl)
                 return cell
         },
             titleForHeaderInSection: {dataSource, sectionIndex in
                 return dataSource[sectionIndex].model
         }
+            
         )
         
         let controller = GitHubUsersApiController()
@@ -94,6 +98,9 @@ class UsersViewController: UIViewController {
 }
 
 extension UsersViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+       return UITableViewAutomaticDimension
+    }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath)
     }
