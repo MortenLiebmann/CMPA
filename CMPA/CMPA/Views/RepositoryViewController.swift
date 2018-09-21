@@ -34,7 +34,7 @@ class RepositoryViewController: UIViewController {
         urlLabel.text = repository.HtmlUrl
         
         if let stargazersUrl = repository.StargazersUrl, let stars = repository.Stars {
-            let users = controller.getUsers(by: stargazersUrl)
+            let users = controller.getUsers(by: stargazersUrl, key: "stargazer/\(repository.FullName!)")
             
             starsLabel.text = "\(stars) stars"
             
