@@ -31,10 +31,10 @@ class RepositoryViewController: UIViewController {
         nameLabel?.text = repository.FullName
         dateLabel?.text = "Created \(repository.CreatedAt?.toString() ?? "")"
         descriptionLabel?.text = repository.Description
-        urlLabel.text = repository.HtmlUrl
+        urlLabel?.text = repository.HtmlUrl
         
-        if let stargazersUrl = repository.StargazersUrl, let stars = repository.Stars {
-            let users = controller.getUsers(by: stargazersUrl, key: "stargazer/\(repository.FullName!)")
+        if let stargazersUrl = repository.StargazersUrl, let stars = repository.Stars, let fullName = repository.FullName {
+            let users = controller.getUsers(by: stargazersUrl, key: "stargazer/\(fullName)")
             
             starsLabel.text = "\(stars) stars"
             
