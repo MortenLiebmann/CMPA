@@ -27,29 +27,36 @@ protocol StorageManagerHandler{
 }
 
 class StorageManager: StorageManagerHandler {
+    private var encoder: JSONEncoder {
+        let encoder = JSONEncoder()
+        encoder.dateEncodingStrategy = .iso8601
+        return encoder
+    }
+    
+    private var decoder: JSONDecoder {
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .iso8601
+        return decoder
+    }
+    var userDefaults = UserDefaults.standard
     static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
     
     func save<T: Codable>(data: T, for key: String) -> StorageStatus<Data, StorageError> {
         do {
-            let data = try JSONEncoder().encode(data.self)
+            let data = try encoder.encode(data.self)
             
-            let successfulSave = NSKeyedArchiver.archiveRootObject(data, toFile: StorageManager.DocumentsDirectory.appendingPathComponent(key).path)
-            
-            if successfulSave {
-                return .Success(data)
-            } else {
-                return .Failed(.SaveFailed)
-            }
+            userDefaults.set(data, forKey: key)
+            return .Success(data)
         } catch {
             return .Failed(.DecodeFailed)
         }
     }
     
     func load<T: Codable>(for key: String) -> StorageStatus<T, StorageError> where T : Decodable, T : Encodable {
-        guard let data = NSKeyedUnarchiver.unarchiveObject(withFile: StorageManager.DocumentsDirectory.appendingPathComponent(key).path) as? Data else { return .Failed(.LoadFailed) }
+        guard let data = userDefaults.data(forKey: key) else { return .Failed(.LoadFailed) }
         
         do {
-            let model: T = try JSONDecoder().decode(T.self, from: data)
+            let model: T = try decoder.decode(T.self, from: data)
             
             return .Success(model)
         } catch {

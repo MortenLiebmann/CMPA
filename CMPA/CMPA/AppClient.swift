@@ -16,24 +16,34 @@ class AppClient {
         return decoder
     }
     private var storageManager = StorageManager()
-    func get<T: Codable>(request: URLRequest) -> Observable<T> {
+    func get<T: Codable>(request: URLRequest, key: String) -> Observable<T> {
         return Observable<T>.create {observer in
-            //We will check for network connectivity here.
-            //If no connectivity, load from storageManager using path as key
-            //If connectivity, load from request
-            let task = URLSession.shared.dataTask(with: request) {(data, response, error) in
-                do {
-                    let value: T = try self.decoder.decode(T.self, from: data ?? Data())
-                    observer.onNext(value)
-                } catch {
-                    observer.onError(error)
+            if !Networking.isConnectedToNetwork() {
+                let status: StorageStatus<T, StorageError> = self.storageManager.load(for: key)
+                
+                switch status {
+                case .Success(let model):
+                    observer.onNext(model)
+                    break
+                default: break
                 }
-                observer.onCompleted()
-            }
-            task.resume()
-            
-            return Disposables.create {
-                task.cancel()
+                return Disposables.create()
+            } else {
+                let task = URLSession.shared.dataTask(with: request) {(data, response, error) in
+                    do {
+                        let value: T = try self.decoder.decode(T.self, from: data ?? Data())
+                        let status = self.storageManager.save(data: value, for: key)
+                        observer.onNext(value)
+                    } catch {
+                        observer.onError(error)
+                    }
+                    observer.onCompleted()
+                }
+                task.resume()
+                
+                return Disposables.create {
+                    task.cancel()
+                }
             }
         }
     }

@@ -41,7 +41,7 @@ class RepositoriesViewController: UIViewController {
         
         userNameLabel.text = user.UserLogin
         
-        let repositories = controller.getRepositories(by: repositoryUrl)
+        let repositories = controller.getRepositories(by: repositoryUrl, key: "repositories/\(user.UserLogin!)")
             .map{ Dictionary(grouping: $0, by: { $0.Language ?? "No language" }).sorted(by: { return $0.value.count > $1.value.count})}
             .map { $0.map { SectionModel(model: $0.key, items: $0.value.sorted(by: { (x, y) in
                 let xscore = x.Stars ?? 0
