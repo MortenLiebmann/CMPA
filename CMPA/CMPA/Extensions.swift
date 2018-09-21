@@ -31,3 +31,12 @@ extension UIImageView {
         task.resume()
     }
 }
+
+extension Date {
+    func toString() -> String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .long
+        formatter.timeStyle = .none
+        return formatter.string(from: self)
+    }
+}
