@@ -20,29 +20,23 @@ class UsersViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
+    let controller = GitHubUsersApiController()
     var disposeBag = DisposeBag()
-    
-    let dict: [String: [User]] = [:]
+    let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, User>>(
+        configureCell: {(_, tv, indexPath, element) in
+            let cell = tv.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! UsersTableViewCell
+            cell.nameLabel.text = element.UserLogin
+            cell.repositoryLabel.text = element.RepositoryUrl
+            cell.avatar.downloadImage(from: element.AvatarUrl)
+            return cell
+    })
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UINib(nibName: "UsersTableViewCell", bundle: nil), forCellReuseIdentifier: "Cell")
         
-        let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, User>>(
-            configureCell: {(_, tv, indexPath, element) in
-                let cell = tv.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! UsersTableViewCell
-                cell.nameLabel.text = element.UserLogin
-                cell.repositoryLabel.text = element.RepositoryUrl
-                cell.avatar.downloadImage(from: element.AvatarUrl)
-                return cell
-        },
-            titleForHeaderInSection: {dataSource, sectionIndex in
-                return dataSource[sectionIndex].model
-        }
-            
-        )
+        configureDataSource()
         
-        let controller = GitHubUsersApiController()
         let users = searchBar.rx.text.orEmpty.asObservable()
             .debounce(0.3, scheduler: MainScheduler.instance)
             .distinctUntilChanged()
@@ -51,15 +45,13 @@ class UsersViewController: UIViewController {
                 if query.isEmpty {
                     return .empty()
                 }
-                return controller.searchUsers(by: query, key: "users")
+                return self.controller.searchUsers(by: query, key: "users")
             }
-            .map{ $0.Items ?? []}
-            .map {users in
-                return Dictionary(grouping: users, by: { $0.UserType! })
-            }.map{users in
-                users.map({ (key, users) -> SectionModel<String, User> in
-                    return SectionModel(model: key, items: users)
-                })}
+            .map { $0.Items ?? []}
+            .map { Dictionary(grouping: $0, by: { $0.UserType! }) }
+            .map { $0.map({ (key, users) -> SectionModel<String, User> in
+                return SectionModel(model: key, items: users)
+            })}
         
         users
             .bind(to: tableView.rx.items(dataSource: dataSource))
@@ -93,8 +85,14 @@ class UsersViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+}
 
-
+extension UsersViewController {
+    func configureDataSource() {
+        dataSource.titleForHeaderInSection = {dataSource, sectionIndex in
+            return dataSource[sectionIndex].model
+        }
+    }
 }
 
 extension UsersViewController: UITableViewDelegate {

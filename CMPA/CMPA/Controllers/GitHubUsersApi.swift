@@ -9,17 +9,6 @@
 import Foundation
 import RxSwift
 
-enum Result<T, E: Error> {
-    case success(T)
-    case failure(E)
-}
-
-enum GitHubServiceError: Error {
-    case offline
-    case githubLimitReached
-    case networkError
-}
-
 struct GitHubUsersApiController {
     var appClient = AppClient()
     func getUsers(by urlString: String, key: String) -> Observable<[User]> {

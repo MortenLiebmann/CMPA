@@ -10,5 +10,4 @@ import UIKit
 
 class StarGazerCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var avatar: UIImageView!
-    
 }
