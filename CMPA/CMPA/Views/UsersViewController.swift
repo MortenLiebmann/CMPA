@@ -51,7 +51,7 @@ class UsersViewController: UIViewController {
                 if query.isEmpty {
                     return .empty()
                 }
-                return controller.getUsers(by: query)
+                return controller.searchUsers(by: query)
             }
             .map{ $0.Items ?? []}
             .map {users in

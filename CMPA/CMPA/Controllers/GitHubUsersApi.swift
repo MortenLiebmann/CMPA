@@ -21,12 +21,19 @@ enum GitHubServiceError: Error {
 }
 
 struct GitHubUsersApiController {
-    func getUsers(by query: String) -> Observable<GitHubResponse<User>> {
-        guard let url = URL(string: "https://api.github.com/search/users?q=\(query)") else {
+    var appClient = AppClient()
+    func getUsers(by urlString: String) -> Observable<[User]> {
+        guard let url = URL(string: urlString) else {
             return .empty()
         }
         
-        let appClient = AppClient()
+        return appClient.get(request: URLRequest(url: url))
+    }
+    
+    func searchUsers(by query: String) -> Observable<GitHubResponse<User>> {
+        guard let url = URL(string: "https://api.github.com/search/users?q=\(query)") else {
+            return .empty()
+        }
         
         return appClient.get(request: URLRequest(url: url))
     }
