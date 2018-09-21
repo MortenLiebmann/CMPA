@@ -19,6 +19,7 @@
 		A6E5DC302153AB6B008D85BB /* UsersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E5DC2E2153AB6B008D85BB /* UsersTableViewCell.swift */; };
 		A6E5DC312153AB6B008D85BB /* UsersTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6E5DC2F2153AB6B008D85BB /* UsersTableViewCell.xib */; };
 		A6E5DC33215401FA008D85BB /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E5DC32215401FA008D85BB /* Extensions.swift */; };
+		A6E5DC3D215509EC008D85BB /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E5DC3C215509EC008D85BB /* Networking.swift */; };
 		A6E5DC3621541A4D008D85BB /* RepositoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E5DC3421541A4D008D85BB /* RepositoryTableViewCell.swift */; };
 		A6E5DC3721541A4D008D85BB /* RepositoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6E5DC3521541A4D008D85BB /* RepositoryTableViewCell.xib */; };
 		A6E5DC392154DBFB008D85BB /* RepositoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E5DC382154DBFB008D85BB /* RepositoryViewController.swift */; };
@@ -63,6 +64,7 @@
 		A6E5DC2E2153AB6B008D85BB /* UsersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableViewCell.swift; sourceTree = "<group>"; };
 		A6E5DC2F2153AB6B008D85BB /* UsersTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UsersTableViewCell.xib; sourceTree = "<group>"; };
 		A6E5DC32215401FA008D85BB /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		A6E5DC3C215509EC008D85BB /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		A6E5DC3421541A4D008D85BB /* RepositoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryTableViewCell.swift; sourceTree = "<group>"; };
 		A6E5DC3521541A4D008D85BB /* RepositoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositoryTableViewCell.xib; sourceTree = "<group>"; };
 		A6E5DC382154DBFB008D85BB /* RepositoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryViewController.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 				A626305C215128820028C989 /* AppClient.swift */,
 				A6E5DC2C2152E89B008D85BB /* StorageManager.swift */,
 				A6E5DC32215401FA008D85BB /* Extensions.swift */,
+				A6E5DC3C215509EC008D85BB /* Networking.swift */,
 			);
 			path = CMPA;
 			sourceTree = "<group>";
@@ -405,6 +408,7 @@
 				A6FE57F421501FC3003A6FE5 /* UsersViewController.swift in Sources */,
 				A6CE179D21512FE200112E95 /* GitHubResponse.swift in Sources */,
 				A6BBD21F21502A63003FD8DB /* GitHubUsersApi.swift in Sources */,
+				A6E5DC3D215509EC008D85BB /* Networking.swift in Sources */,
 				A6FE57F221501FC3003A6FE5 /* AppDelegate.swift in Sources */,
 				A6A903012152800F00BF462C /* RepositoriesViewController.swift in Sources */,
 				A6E5DC3621541A4D008D85BB /* RepositoryTableViewCell.swift in Sources */,
