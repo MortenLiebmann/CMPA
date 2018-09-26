@@ -27,7 +27,7 @@ class UsersViewController: UIViewController {
             let cell = tv.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! UsersTableViewCell
             cell.nameLabel.text = element.UserLogin
             cell.repositoryLabel.text = element.RepositoryUrl
-            cell.avatar.downloadImage(from: element.AvatarUrl)
+            cell.avatar.downloadImage(from: element.AvatarUrl, id: element.Id)
             return cell
     })
     

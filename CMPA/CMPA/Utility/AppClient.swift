@@ -10,12 +10,25 @@ import Foundation
 import RxSwift
 
 class AppClient {
+    open var imageCache: [Int: Data] = [:]
+    
+    func clearCache() {
+        imageCache = [:]
+    }
+    
     private var decoder: JSONDecoder {
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .iso8601
         return decoder
     }
     private var storageManager = StorageManager()
+    
+    func get(request: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> ()) -> URLSessionDataTask {
+        return URLSession.shared.dataTask(with: request) { (data, response, error) in
+            completionHandler(data, response, error)
+        }
+    }
+    
     func get<T: Codable>(request: URLRequest, key: String) -> Observable<T> {
         if !Networking.isConnectedToNetwork() {
             return getOfflineData(key: key)
@@ -26,7 +39,8 @@ class AppClient {
     
     private func getOnlineData<T: Codable>(request: URLRequest, key: String) -> Observable<T> {
         return Observable<T>.create {observer in
-            let task = URLSession.shared.dataTask(with: request) {(data, response, error) in
+            
+            let task = self.get(request: request){(data, response, error) in
                 do {
                     let value: T = try self.decoder.decode(T.self, from: data ?? Data())
                     let status = self.storageManager.save(data: value, for: key)
@@ -36,6 +50,7 @@ class AppClient {
                 }
                 observer.onCompleted()
             }
+            
             task.resume()
             
             return Disposables.create {

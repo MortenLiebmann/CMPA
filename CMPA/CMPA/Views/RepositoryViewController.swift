@@ -39,7 +39,7 @@ class RepositoryViewController: UIViewController {
             starsLabel.text = "\(stars) stars"
             
             users.bind(to: collectionView.rx.items(cellIdentifier: "Cell", cellType: StarGazerCollectionViewCell.self)) {index, element, cell in
-                cell.avatar.downloadImage(from: element.AvatarUrl)
+                cell.avatar.downloadImage(from: element.AvatarUrl, id: element.Id)
             }.disposed(by: disposeBag)
         }
     }
