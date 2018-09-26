@@ -9,8 +9,7 @@
 import Foundation
 import RxSwift
 
-struct GitHubUsersApiController {
-    var appClient = AppClient()
+struct GitHubUsersApiController: AppClientDelegate {
     func getUsers(by urlString: String, key: String) -> Observable<[User]> {
         guard let url = URL(string: urlString) else {
             return .empty()
